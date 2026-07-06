@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dulces Fit: Recetas Low Carb & Keto</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFFAF5;
+    --blush: #F5D5E5;
+    --pink: #E8A0BF;
+    --pink-dark: #C47E9E;
+    --rose: #D4869E;
+    --brown: #4A3728;
+    --brown-mid: #5C4A3A;
+    --brown-light: #9B8B7E;
+    --tan: #C4B5A8;
+    --sand: #E8DDD4;
+    --card: #FFF5EE;
+    --white: #ffffff;
+    --gold: #C4956A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--brown-mid);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--pink);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .cta-btn:hover {
+    background: var(--pink-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232,160,191,0.35);
+  }
+  .cta-btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--pink-dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid var(--pink);
+    transition: all 0.3s ease;
+  }
+  .cta-btn-outline:hover {
+    background: var(--pink);
+    color: var(--white);
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .section-sub {
+    color: var(--brown-light);
+    font-size: 0.95rem;
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  .dotted-line {
+    border: none;
+    border-top: 1.5px dashed var(--sand);
+    margin: 0 auto;
+    max-width: 200px;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--sand);
+    position: sticky;
+    top: 0;
+    background: rgba(255,250,245,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--brown);
+    text-decoration: none;
+  }
+  .logo span { color: var(--pink); }
+  .logo-icon { display: block; }
+  nav { display: flex; gap: 28px; align-items: center; }
+  nav a {
+    font-size: 0.85rem;
+    color: var(--brown-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--pink-dark); }
+  .nav-cta {
+    background: var(--pink);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--pink-dark); }
+
+  .mobile-menu { display: none; background: none; border: none; font-size: 1.5rem; color: var(--brown); cursor: pointer; }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -60px;
+    width: 280px; height: 280px;
+    background: var(--blush);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 180px; height: 180px;
+    background: var(--blush);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  .hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .hero-cover img {
+    width: 100%;
+    max-width: 380px;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 20px 40px rgba(74,55,40,0.18));
+  }
+
+  .hero-content { text-align: right; }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero h1 em { color: var(--pink-dark); font-style: italic; }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--brown-light);
+    max-width: 520px;
+    margin: 0 0 32px auto;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 860px) {
+    .hero .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-content { text-align: center; }
+    .hero-sub { margin: 0 auto 32px; }
+  }
+
+  /* ─── DOLOR ─── */
+  .pain {
+    padding: 60px 0;
+    text-align: center;
+    background: var(--card);
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+  }
+  .pain-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--brown);
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.4;
+  }
+  .pain-text {
+    color: var(--brown-light);
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  /* ─── RECETAS MUESTRA ─── */
+  .recipes {
+    padding: 60px 0;
+  }
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .recipe-card {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(74,55,40,0.06);
+  }
+  .recipe-header {
+    height: 180px;
+    border-bottom: 1px solid var(--sand);
+    background-size: cover;
+    background-position: center;
+  }
+  .recipe-body { padding: 24px; }
+  .recipe-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+  .recipe-body .recipe-desc {
+    font-size: 0.8rem;
+    color: var(--brown-light);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  .recipe-body .recipe-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--pink-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 12px 0 6px;
+  }
+  .recipe-body .recipe-list {
+    list-style: none;
+    padding: 0;
+  }
+  .recipe-body .recipe-list li {
+    font-size: 0.82rem;
+    color: var(--brown-mid);
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .recipe-body .recipe-list li::before {
+    content: '·';
+    color: var(--pink);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .recipe-body .recipe-steps {
+    font-size: 0.82rem;
+    color: var(--brown-mid);
+    line-height: 1.7;
+  }
+  .recipe-macros {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .recipe-macros span {
+    font-size: 0.7rem;
+    color: var(--rose);
+    background: var(--blush);
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 500;
+  }
+
+  /* ─── HIGHLIGHTS ─── */
+  .highlights {
+    padding: 60px 0;
+    background: var(--card);
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+  }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .highlight-card {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: transform 0.2s;
+  }
+  .highlight-card:hover { transform: translateY(-3px); }
+  .highlight-card .hl-icon {
+    width: 44px; height: 44px;
+    background: var(--blush);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+  }
+  .highlight-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+  .highlight-card p {
+    font-size: 0.85rem;
+    color: var(--brown-light);
+    line-height: 1.6;
+  }
+
+  /* ─── CATEGORÍAS ─── */
+  .categories { padding: 60px 0; background: var(--card); border-top: 1px solid var(--sand); border-bottom: 1px solid var(--sand); }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .cat-item {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    padding: 18px 12px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .cat-item:hover { border-color: var(--pink); }
+  .cat-item .cat-emoji { font-size: 1.4rem; margin-bottom: 6px; }
+  .cat-item .cat-name { font-size: 0.78rem; font-weight: 500; color: var(--brown); line-height: 1.3; }
+
+  /* ─── TESTIMONIOS ─── */
+  .testimonials { padding: 60px 0; }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .test-card {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .test-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 10px; letter-spacing: 2px; }
+  .test-text { font-size: 0.88rem; color: var(--brown-mid); line-height: 1.7; font-style: italic; margin-bottom: 14px; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .test-avatar {
+    width: 38px; height: 38px;
+    background: var(--blush);
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .test-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .test-name { font-size: 0.82rem; font-weight: 600; color: var(--brown); }
+  .test-detail { font-size: 0.72rem; color: var(--brown-light); }
+
+  /* ─── PROPÓSITO ─── */
+  .purpose {
+    padding: 60px 0;
+    background: var(--card);
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+  }
+  .purpose-text {
+    max-width: 640px;
+    margin: 0 auto 32px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--brown-mid);
+    line-height: 1.8;
+  }
+  .purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto 32px;
+  }
+  .purpose-item { text-align: center; }
+  .purpose-item .p-icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .purpose-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+  .purpose-item p { font-size: 0.82rem; color: var(--brown-light); line-height: 1.5; }
+
+  /* ─── CTA FINAL ─── */
+  .final-cta { padding: 70px 0; text-align: center; }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+  .final-cta .price {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .final-cta .price .old {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--tan);
+    text-decoration: line-through;
+  }
+  .final-cta .price .new {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--pink-dark);
+    font-weight: 700;
+  }
+  .final-cta .discount-tag {
+    display: inline-block;
+    background: var(--pink);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 6px;
+  }
+  .final-cta .price-note { font-size: 0.85rem; color: var(--brown-light); margin-bottom: 24px; }
+  .final-features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .final-features span {
+    font-size: 0.8rem;
+    color: var(--brown-mid);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .final-features span::before { content: '✓'; color: var(--pink); font-weight: 700; }
+
+  /* ─── CONTACTO ─── */
+  .contact { padding: 60px 0; }
+  .contact-form {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-family: 'Inter', sans-serif;
+    padding: 14px 18px;
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    background: var(--white);
+    color: var(--brown);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--pink); }
+  .contact-form textarea { resize: vertical; min-height: 100px; }
+  .contact-form button {
+    align-self: flex-start;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 32px 0;
+    text-align: center;
+    border-top: 1px solid var(--sand);
+  }
+  footer p { font-size: 0.75rem; color: var(--tan); line-height: 1.8; }
+  .footer-links { margin-top: 10px; }
+  .footer-links a {
+    font-size: 0.75rem;
+    color: var(--brown-light);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--pink); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2.1rem; }
+    .section-title { font-size: 1.5rem; }
+    .pain-question { font-size: 1.25rem; }
+    .final-cta h2 { font-size: 1.6rem; }
+    nav { display: none; }
+    .mobile-menu { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header>
+  <div class="container">
+    <a href="#" class="logo">
+      <svg class="logo-icon" width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="13" cy="14" rx="10" ry="9" fill="#4A3728"/>
+        <circle cx="8" cy="9" r="1.3" fill="#F5D5E5"/>
+        <circle cx="13" cy="6.5" r="1.3" fill="#E8A0BF"/>
+        <circle cx="18" cy="9" r="1.3" fill="#C4956A"/>
+        <circle cx="6" cy="14" r="1.3" fill="#C4956A"/>
+        <circle cx="20" cy="14" r="1.3" fill="#F5D5E5"/>
+        <circle cx="9" cy="19" r="1.3" fill="#E8A0BF"/>
+        <circle cx="17" cy="19" r="1.3" fill="#C4956A"/>
+      </svg>
+      Dulces<span>Fit</span>
+    </a>
+    <nav>
+      <a href="#recetas">Recetas</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#testimonios">Opiniones</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://pay.hotmart.com/N102161788B?offDiscount=DESCUENTOEXCLUSIVOHOY" target="_blank" rel="noopener" class="nav-cta">Comprar</a>
+    </nav>
+    <button class="mobile-menu">☰</button>
+  </div>
+</header>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-cover">
+      <img src="images/capa.png" alt="Portada del libro Dulces Fit">
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">♥ Recetas Low Carb & Keto</p>
+      <h1>101 Dulces Fit que<br><em>no saben a dieta</em></h1>
+      <p class="hero-sub">Recetas fáciles, rápidas y deliciosas para cuidar tu cuerpo sin renunciar a lo dulce. Con información nutricional completa y tips profesionales.</p>
+      <a href="https://pay.hotmart.com/N102161788B?offDiscount=DESCUENTOEXCLUSIVOHOY" target="_blank" rel="noopener" class="cta-btn">🍰 Quiero mis recetas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ DOLOR ════════ -->
+<section class="pain">
+  <div class="container">
+    <p class="pain-question">¿Cuántas veces dijiste "no puedo" frente a un postre por estar a dieta?</p>
+    <p class="pain-text">Sabemos lo que se siente. Rechazar la galleta, ver a todos disfrutar el postre mientras tú tomas agua. Pero no tiene que ser así. Con los ingredientes correctos, cada dulce puede ser parte de tu vida, sin azúcar, sin culpa y sin complicaciones.</p>
+  </div>
+</section>
+
+<!-- ════════ RECETAS MUESTRA ════════ -->
+<section class="recipes" id="recetas">
+  <div class="container">
+    <div style="text-align: center;">
+      <p class="section-eyebrow">Un vistazo al libro</p>
+      <h2 class="section-title">Recetas que vas a querer hacer hoy mismo</h2>
+      <p class="section-sub">Estas son solo 3 de las 101 recetas que te esperan. Cada una incluye ingredientes, preparación paso a paso, info nutricional y tips.</p>
+    </div>
+    <div class="recipes-grid">
+
+      <!-- Receta 1 -->
+      <div class="recipe-card">
+        <div class="recipe-header" style="background-image: url('images/brownie.png');"></div>
+        <div class="recipe-body">
+          <h3>Brownie Clásico Keto</h3>
+          <p class="recipe-desc">Intenso, húmedo y sin culpa: el brownie perfecto low carb.</p>
+          <p class="recipe-label">Ingredientes</p>
+          <ul class="recipe-list">
+            <li>100 g de mantequilla sin sal</li>
+            <li>60 g de cacao en polvo sin azúcar</li>
+            <li>120 g de eritritol granulado</li>
+            <li>3 huevos grandes</li>
+            <li>80 g de harina de almendra</li>
+            <li>1 cdta de extracto de vainilla</li>
+          </ul>
+          <p class="recipe-label">Preparación</p>
+          <p class="recipe-steps">Derretir la mantequilla, agregar cacao y mezclar. Incorporar eritritol, vainilla y huevos uno a uno. Añadir harina de almendra. Hornear a 175°C por 18-22 min.</p>
+          <div class="recipe-macros">
+            <span>3g carbs</span>
+            <span>4g prot</span>
+            <span>13g grasas</span>
+            <span>145 kcal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Receta 2 -->
+      <div class="recipe-card">
+        <div class="recipe-header" style="background-image: url('images/cookie.png');"></div>
+        <div class="recipe-body">
+          <h3>Galletas de Chispas de Chocolate</h3>
+          <p class="recipe-desc">Clásica cookie americana pero sin carbohidratos ocultos.</p>
+          <p class="recipe-label">Ingredientes</p>
+          <ul class="recipe-list">
+            <li>150 g de harina de almendra</li>
+            <li>60 g de eritritol</li>
+            <li>60 g de mantequilla derretida</li>
+            <li>1 huevo</li>
+            <li>50 g de chips de chocolate sin azúcar</li>
+            <li>1 cdta de vainilla</li>
+          </ul>
+          <p class="recipe-label">Preparación</p>
+          <p class="recipe-steps">Mezclar mantequilla con eritritol y vainilla. Agregar huevo. Incorporar harina y chips. Formar bolitas en bandeja. Hornear a 175°C por 10-12 min.</p>
+          <div class="recipe-macros">
+            <span>2g carbs</span>
+            <span>3g prot</span>
+            <span>10g grasas</span>
+            <span>110 kcal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Receta 3 -->
+      <div class="recipe-card">
+        <div class="recipe-header" style="background-image: url('images/sorvete.png');"></div>
+        <div class="recipe-body">
+          <h3>Helado de Chocolate y Aguacate</h3>
+          <p class="recipe-desc">Ultra cremoso gracias al aguacate. Nadie adivina el secreto.</p>
+          <p class="recipe-label">Ingredientes</p>
+          <ul class="recipe-list">
+            <li>2 aguacates maduros</li>
+            <li>200 ml de leche de coco</li>
+            <li>40 g de cacao en polvo</li>
+            <li>80 g de eritritol en polvo</li>
+            <li>1 cdta de vainilla</li>
+            <li>1 pizca de sal</li>
+          </ul>
+          <p class="recipe-label">Preparación</p>
+          <p class="recipe-steps">Procesar todos los ingredientes hasta obtener una crema lisa. Verter en recipiente y congelar 4 horas, batiendo cada hora. Sacar 10 min antes de servir.</p>
+          <div class="recipe-macros">
+            <span>5g carbs</span>
+            <span>3g prot</span>
+            <span>18g grasas</span>
+            <span>195 kcal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ HIGHLIGHTS ════════ -->
+<section class="highlights">
+  <div class="container">
+    <div style="text-align: center;">
+      <p class="section-eyebrow">Por qué elegir Dulces Fit</p>
+      <h2 class="section-title">Lo que hace especial a este libro</h2>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="hl-icon">🍫</div>
+        <h3>101 Recetas Sin Azúcar</h3>
+        <p>Desde brownies hasta helados. Todas las recetas usan endulzantes naturales como eritritol. Sabor real, cero culpa, y aptas para dietas low carb y cetogénicas.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-icon">📊</div>
+        <h3>Info Nutricional Completa</h3>
+        <p>Cada receta incluye carbohidratos, proteínas, grasas y fibra por porción. Así puedes controlar tus macros sin adivinar ni calcular por tu cuenta.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-icon">💡</div>
+        <h3>Tips Pro y Variaciones</h3>
+        <p>Cada receta viene con un tip profesional de cocina y opciones de variación para que nunca repitas lo mismo. Son como 3 libros en 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CATEGORÍAS ════════ -->
+<section class="categories" id="categorias">
+  <div class="container">
+    <div style="text-align: center;">
+      <p class="section-eyebrow">Qué hay dentro</p>
+      <h2 class="section-title">20 categorías para cada antojo</h2>
+      <p class="section-sub">No importa qué se te antoje, hay una receta fit para eso.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-item"><div class="cat-emoji">🍫</div><div class="cat-name">Brownies y Barras</div></div>
+      <div class="cat-item"><div class="cat-emoji">🍪</div><div class="cat-name">Galletas</div></div>
+      <div class="cat-item"><div class="cat-emoji">🎂</div><div class="cat-name">Tortas y Pasteles</div></div>
+      <div class="cat-item"><div class="cat-emoji">🍮</div><div class="cat-name">Mousses y Postres</div></div>
+      <div class="cat-item"><div class="cat-emoji">🍦</div><div class="cat-name">Helados y Paletas</div></div>
+      <div class="cat-item"><div class="cat-emoji">🍬</div><div class="cat-name">Bombones y Trufas</div></div>
+      <div class="cat-item"><div class="cat-emoji">🥞</div><div class="cat-name">Panqueques</div></div>
+      <div class="cat-item"><div class="cat-emoji">🧁</div><div class="cat-name">Muffins y Cupcakes</div></div>
+      <div class="cat-item"><div class="cat-emoji">🍰</div><div class="cat-name">Cheesecakes</div></div>
+      <div class="cat-item"><div class="cat-emoji">☕</div><div class="cat-name">Bebidas Dulces</div></div>
+      <div class="cat-item"><div class="cat-emoji">🥧</div><div class="cat-name">Tartas y Pies</div></div>
+      <div class="cat-item"><div class="cat-emoji">🍩</div><div class="cat-name">Clásicos Reinventados</div></div>
+    </div>
+    <div style="text-align: center; margin-top: 36px;">
+      <a href="https://pay.hotmart.com/N102161788B?offDiscount=DESCUENTOEXCLUSIVOHOY" target="_blank" rel="noopener" class="cta-btn">Quiero todas las recetas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TESTIMONIOS ════════ -->
+<section class="testimonials" id="testimonios">
+  <div class="container">
+    <div style="text-align: center;">
+      <p class="section-eyebrow">Lo que dicen</p>
+      <h2 class="section-title">Personas reales, resultados reales</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Llevo 3 meses haciendo keto y este libro me salvó. Los brownies son increíbles, mi familia ni nota que son fit."</p>
+        <div class="test-author">
+          <div class="test-avatar"><img src="images/moca2.jpg" alt="María G."></div>
+          <div><div class="test-name">María G.</div><div class="test-detail">Buenos Aires, Argentina</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Las recetas son facilísimas. Las galletas de coco las hago cada semana y siempre quedan perfectas."</p>
+        <div class="test-author">
+          <div class="test-avatar"><img src="images/moca.jpg" alt="Carolina P."></div>
+          <div><div class="test-name">Carolina P.</div><div class="test-detail">Ciudad de México, México</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Compré para mi esposa y ahora los dos comemos mejor. Los helados y muffins son lo mejor que probamos."</p>
+        <div class="test-author">
+          <div class="test-avatar"><img src="images/idosos.jpg" alt="Roberto L."></div>
+          <div><div class="test-name">Roberto L.</div><div class="test-detail">Bogotá, Colombia</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 36px;">
+      <a href="https://pay.hotmart.com/N102161788B?offDiscount=DESCUENTOEXCLUSIVOHOY" target="_blank" rel="noopener" class="cta-btn">Quiero mi libro ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PROPÓSITO ════════ -->
+<section class="purpose">
+  <div class="container">
+    <div style="text-align: center;">
+      <p class="section-eyebrow">Nuestro propósito</p>
+      <h2 class="section-title">Comer bien no tiene que ser difícil</h2>
+    </div>
+    <p class="purpose-text">En Dulces Fit creemos que una alimentación saludable no debería significar sacrificio. Nuestro objetivo es demostrarte que puedes disfrutar de cada postre, cada galleta y cada helado, cuidando tu cuerpo, sin complicaciones y sin gastar de más.</p>
+    <div class="purpose-grid">
+      <div class="purpose-item">
+        <div class="p-icon">💪</div>
+        <h4>Salud</h4>
+        <p>Recetas que cuidan tu cuerpo sin restricciones extremas ni ingredientes imposibles.</p>
+      </div>
+      <div class="purpose-item">
+        <div class="p-icon">💰</div>
+        <h4>Economía</h4>
+        <p>Ingredientes accesibles que encuentras en cualquier supermercado.</p>
+      </div>
+      <div class="purpose-item">
+        <div class="p-icon">⚡</div>
+        <h4>Facilidad</h4>
+        <p>Recetas rápidas y prácticas para quienes tienen poco tiempo.</p>
+      </div>
+    </div>
+    <div style="text-align: center;">
+      <a href="https://pay.hotmart.com/N102161788B?offDiscount=DESCUENTOEXCLUSIVOHOY" target="_blank" rel="noopener" class="cta-btn-outline">Explorar las recetas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CTA FINAL ════════ -->
+<section class="final-cta" id="comprar">
+  <div class="container">
+    <p class="section-eyebrow">Empieza hoy</p>
+    <h2>101 recetas dulces esperando por ti</h2>
+    <div class="discount-tag">50% de descuento por tiempo limitado</div>
+    <div class="price">
+      <span class="old">$15,80 USD</span>
+      <span class="new">$7,90 USD</span>
+    </div>
+    <p class="price-note">Acceso inmediato · PDF descargable · Tuyo para siempre</p>
+    <div class="final-features">
+      <span>101 recetas completas</span>
+      <span>Info nutricional</span>
+      <span>Tips profesionales</span>
+      <span>Variaciones incluidas</span>
+    </div>
+    <a href="https://pay.hotmart.com/N102161788B?offDiscount=DESCUENTOEXCLUSIVOHOY" target="_blank" rel="noopener" class="cta-btn">Descargar mi libro ahora</a>
+    <p style="margin-top: 14px; font-size: 0.8rem; color: var(--tan);">Pago seguro · Descarga inmediata</p>
+  </div>
+</section>
+
+<!-- ════════ CONTACTO ════════ -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div style="text-align: center;">
+      <p class="section-eyebrow">Hablemos</p>
+      <h2 class="section-title">¿Tienes preguntas o sugerencias?</h2>
+      <p class="section-sub">Escríbenos y te responderemos lo antes posible.</p>
+    </div>
+    <div class="contact-form">
+      <input type="text" placeholder="Tu nombre">
+      <input type="email" placeholder="Tu email">
+      <textarea placeholder="Tu mensaje"></textarea>
+      <button class="cta-btn">Enviar</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="container">
+    <p>© 2026 Dulces Fit. Low Carb & Keto. Todos los derechos reservados.<br>
+    Este producto no sustituye orientación médica o nutricional profesional.</p>
+    <div class="footer-links">
+      <a href="privacidad.html">Política de Privacidad</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
